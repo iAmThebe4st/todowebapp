@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+:root {
+  --colorPrimaryDark: #393646;
+  --colorPrimary: #4F4557;
+  --colorSecondaryDark: #6D5D6E;
+  --colorSecondary: #F4EEE0;
+}
+
+* {
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+
+  font-family: 'Roboto';
+}
+
+body {
+  background-color: var(--colorPrimaryDark);
+
+  padding: 50px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .logo {
+  font-size: 40px;
+  font-weight: 700;
+
+  color: var(--colorSecondary);
+}
+.header .new-task-container {
+  display: flex;
+}
+.header .new-task-container input {
+  padding: 6px;
+  margin-right: 6px;
+
+  min-width: 300px;
+  
+  font-size: 18px;
+
+  color: var(--colorSecondary);
+
+  outline: none;
+  border: 2px solid var(--colorSecondary);
+  border-radius: 3px;
+
+  background-color: transparent;
+}
+.header .new-task-container button {
+  padding: 6px;
+  
+  font-size: 18px;
+  font-weight: 500;
+
+  color: var(--colorPrimaryDark);
+
+  outline: none;
+  border: none;
+  border-radius: 3px;
+
+  cursor: pointer;
+
+  background-color: var(--colorSecondary);
+
+  transition: all .5s ease;
+}
+.header .new-task-container button:active {
+  transform: scale(0.6);
+}
+
+.smooth {
+  transition: all .5s ease;
+}

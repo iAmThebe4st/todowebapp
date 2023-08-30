@@ -1,2 +1,2 @@
 # todowebapp
-This is an simple and small todo project for college microproject
+This is an small and simple microproject on To-Do Web App.
