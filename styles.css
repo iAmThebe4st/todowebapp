@@ -5,6 +5,10 @@
   --colorPrimary: #4F4557;
   --colorSecondaryDark: #6D5D6E;
   --colorSecondary: #F4EEE0;
+
+  --colorWarning: #C63D2F;
+  --colorSuccess: #A8DF8E;
+  --colorAlert: #FFBB5C;
 }
 
 * {
@@ -29,7 +33,12 @@ body {
   font-size: 40px;
   font-weight: 700;
 
+  cursor: pointer;
+
   color: var(--colorSecondary);
+}
+.header .logo:hover {
+  text-decoration: underline;
 }
 .header .new-task-container {
   display: flex;
@@ -72,6 +81,45 @@ body {
   transform: scale(0.6);
 }
 
+.tasks-container {
+  display: flex;
+  flex-wrap: wrap;
+
+  margin-top: 30px;
+}
+.tasks-container .task-card {
+  display: flex;
+  flex-direction: column;
+
+  border: 1px solid var(--colorSecondary);
+  border-radius: 4px;
+
+  width: 450px;
+  padding: 6px;
+}
+.tasks-container .task-card .title {
+  font-weight: 500;
+
+  color: var(--colorSecondary);
+}
+.tasks-container .task-card .buttons {
+  display: flex;
+}
+.tasks-container .task-card .buttons svg {
+  margin-top: 10px;
+  width: 38px; height: 38px;
+
+  color: var(--colorSecondary);
+
+  cursor: pointer;
+}
+
 .smooth {
   transition: all .5s ease;
+}
+.delete-btn:hover {
+  color: var(--colorWarning) !important;
+}
+.done-btn:hover {
+  color: var(--colorSuccess) !important;
 }
