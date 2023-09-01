@@ -83,6 +83,21 @@ body {
 .header .new-task-container button:active {
   transform: scale(0.6);
 }
+.delete-all-btn {
+  margin-left: 15px;
+
+  background-color: var(--colorWarning) !important;
+
+  color: var(--colorSecondary) !important;
+}
+.delete-all-btn:hover {
+  background-color: rgba(var(--colorWarning), .2) !important;
+  outline: 1px solid var(--colorWarning) !important;
+  color: var(--colorWarning) !important;
+}
+.delete-all-btn:active {
+  transform: scale(1) !important;
+}
 
 .tasks-container {
   display: flex;
@@ -109,6 +124,15 @@ body {
 }
 .tasks-container .task-card .title {
   font-weight: 500;
+  font-size: 26px;
+
+  color: var(--colorSecondary);
+}
+.tasks-container .task-card .date {
+  font-weight: 300;
+  font-size: 16px;
+
+  margin-top: 5px;
 
   color: var(--colorSecondary);
 }

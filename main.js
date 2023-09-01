@@ -3,20 +3,26 @@ const DATABASE_STRING = "to-do"
 const tasksContainer = document.getElementById("tasks-container")
 const taskInput = document.getElementById("task-input")
 const addTaskButton = document.getElementById("add-task-button")
+const deleteAllTasksButton = document.getElementById("delete-all-tasks-button")
 
 init()
 
 addTaskButton.addEventListener("click", onAddButtonClicked)
+deleteAllTasksButton.addEventListener("click", onDeleteAllTasksButtonClicked)
+
 document.addEventListener("keydown", onEnterPressed)
 
 function createTask(task, idx) {
-  const {title, status} = task
+  const {title, date, status} = task
 
   const taskCard = document.createElement('div')
   taskCard.classList.add('task-card')
   taskCard.innerHTML = `
     <span class="title">
     ${title}
+    </span>
+    <span class="date">
+    ${date}
     </span>
     <div class="buttons">
       <svg onclick="onDeleteButtonClicked(${idx})" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-square-rounded-x-filled smooth delete-btn" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -62,7 +68,6 @@ function emptyContainer() {
   }
 }
 
-// ====================================== onClick Functions ======================================
 function onAddButtonClicked() {
   if (taskInput.value === "") {
     console.log("No value!")
@@ -71,6 +76,7 @@ function onAddButtonClicked() {
 
   const task = {
     title: taskInput.value,
+    date: getCurrentDateAndTime(),
     status: "incomplete"
   }
 
@@ -82,6 +88,13 @@ function onAddButtonClicked() {
   localStorage.setItem(DATABASE_STRING, JSON.stringify(tasks))
 
   taskInput.value = ""
+}
+
+function onDeleteAllTasksButtonClicked() {
+  if(confirm("Are you sure you want to delete all the tasks?")) {
+    localStorage.setItem(DATABASE_STRING, JSON.stringify(new Array()))
+    emptyContainer()
+  }
 }
 
 function onDeleteButtonClicked(idx) {
@@ -108,4 +121,16 @@ function onEnterPressed(e) {
   if(e.key === "Enter") {
     onAddButtonClicked()
   }
+}
+
+function getCurrentDateAndTime() {
+  const date = new Date()
+  const day = date.getDate()
+  const month = date.getMonth()
+  const year = date.getFullYear()
+
+  const hrs = date.getHours()
+  const min = date.getMinutes()
+
+  return day + "/" + (month + 1) + "/" + year + " " + hrs + ":" + min
 }
